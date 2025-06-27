@@ -18,7 +18,9 @@ jobs:
 
       - name: Download CodeNarc
         run: |
+          mkdir libs
           wget https://github.com/CodeNarc/CodeNarc/releases/download/v3.6.0/CodeNarc-3.6.0-groovy-4.0.jar -O codenarc.jar
+          wget https://repo1.maven.org/maven2/org/apache/groovy/groovy/4.0.21/groovy-4.0.21.jar -O libs/groovy.jar
 
       - name: Run CodeNarc on groovy.txt
         run: |
