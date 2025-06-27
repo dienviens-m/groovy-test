@@ -29,6 +29,6 @@ jobs:
       - name: Run CodeNarc
         run: |
           java -cp "libs/*" org.codenarc.CodeNarc \
-            -rulesetfiles=ruleset.groovy \
+            -rulesetfiles=.codenarc/ruleset.groovy \
             -includes=src/**/*.groovy \
             -report=text:stdout
