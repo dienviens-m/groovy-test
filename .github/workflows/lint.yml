@@ -1,0 +1,28 @@
+name: CodeNarc Linter
+
+on: [push, pull_request]
+
+jobs:
+  codenarc:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Download CodeNarc
+        run: |
+          wget https://github.com/CodeNarc/CodeNarc/releases/download/v3.3.0/CodeNarc-3.3.0-all.jar -O codenarc.jar
+
+      - name: Run CodeNarc on groovy.txt
+        run: |
+          java -cp codenarc.jar org.codenarc.CodeNarc \
+            -rulesetfiles=codenarc.groovy \
+            -includes=groovy.txt \
+            -report=text:stdout
