@@ -19,10 +19,12 @@ jobs:
       - name: Download CodeNarc and Groovy using curl
         run: |
           mkdir libs
-          curl -L -o libs/codenarc.jar https://github.com/CodeNarc/CodeNarc/releases/download/v3.6.0/CodeNarc-3.6.0-groovy-4.0.jar
-          curl -L -o libs/groovy.jar https://repo1.maven.org/maven2/org/apache/groovy/groovy/4.0.21/groovy-4.0.21.jar
-          curl -L -o libs/slf4j-api.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar
-          curl -L -o libs/slf4j-simple.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar
+            curl -L -o libs/codenarc.jar https://github.com/CodeNarc/CodeNarc/releases/download/v3.6.0/CodeNarc-3.6.0-groovy-4.0.jar
+            curl -L -o libs/groovy.jar https://repo1.maven.org/maven2/org/apache/groovy/groovy/4.0.21/groovy-4.0.21.jar
+            curl -L -o libs/groovy-text.jar https://repo1.maven.org/maven2/org/apache/groovy/groovy-text/4.0.21/groovy-text-4.0.21.jar
+            curl -L -o libs/groovy-templates.jar https://repo1.maven.org/maven2/org/apache/groovy/groovy-templates/4.0.21/groovy-templates-4.0.21.jar
+            curl -L -o libs/slf4j-api.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar
+            curl -L -o libs/slf4j-simple.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar
 
       - name: Run CodeNarc
         run: |
