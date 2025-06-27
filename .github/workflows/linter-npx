@@ -1,0 +1,19 @@
+name: Groovy Lint (No package.json)
+
+on: [push, pull_request]
+
+jobs:
+  groovy-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Run groovy-lint via npx
+        run: npx groovy-lint '**/*.groovy'
