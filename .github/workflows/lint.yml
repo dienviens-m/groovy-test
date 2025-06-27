@@ -1,6 +1,6 @@
 name: CodeNarc Linter
 
-on: [push, pull_request]
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   codenarc:
@@ -16,15 +16,15 @@ jobs:
           distribution: "temurin"
           java-version: "17"
 
-      - name: Download CodeNarc
+      - name: Download CodeNarc and Groovy using curl
         run: |
           mkdir libs
-          wget https://github.com/CodeNarc/CodeNarc/releases/download/v3.6.0/CodeNarc-3.6.0-groovy-4.0.jar -O codenarc.jar
-          wget https://repo1.maven.org/maven2/org/apache/groovy/groovy/4.0.21/groovy-4.0.21.jar -O libs/groovy.jar
+          curl -L -o libs/codenarc.jar https://github.com/CodeNarc/CodeNarc/releases/download/v3.6.0/CodeNarc-3.6.0-groovy-4.0.jar
+          curl -L -o libs/groovy.jar https://repo1.maven.org/maven2/org/apache/groovy/groovy/4.0.21/groovy-4.0.21.jar
 
-      - name: Run CodeNarc on groovy.txt
+      - name: Run CodeNarc
         run: |
-          java -cp codenarc.jar org.codenarc.CodeNarc \
-            -rulesetfiles=codenarc.groovy \
-            -includes=groovy.txt \
+          java -cp "libs/*" org.codenarc.CodeNarc \
+            -rulesetfiles=ruleset.groovy \
+            -includes=src/**/*.groovy \
             -report=text:stdout

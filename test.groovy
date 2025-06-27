@@ -4,7 +4,7 @@ class HelloWorld {
 
 def sayHello(name){
     if(name == null){
-        println("Hello, Stranger!")
+        println("Hello, SStranger!")
     } else{
             println("Hello, " + name ) } // inconsistent spacing and braces
 }
