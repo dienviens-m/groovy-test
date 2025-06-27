@@ -18,7 +18,7 @@ jobs:
 
       - name: Download CodeNarc
         run: |
-          wget https://github.com/CodeNarc/CodeNarc/releases/download/v3.3.0/CodeNarc-3.3.0-all.jar -O codenarc.jar
+          wget https://github.com/CodeNarc/CodeNarc/releases/download/v3.6.0/CodeNarc-3.6.0-groovy-4.0.jar -O codenarc.jar
 
       - name: Run CodeNarc on groovy.txt
         run: |
